@@ -19,7 +19,7 @@
     <img src="https://github.com/bharat-1809/fooddelivery_app/blob/master/UI_Design/Customize-AddOn.png" alt="feed example" width= "250">
     <img src="https://github.com/bharat-1809/fooddelivery_app/blob/master/UI_Design/Cart%20Checkout.png" alt="feed example" width= "250"><br><br>
     <img src="https://github.com/bharat-1809/fooddelivery_app/blob/master/UI_Design/Payment%20and%20Checkout.png" alt="feed example" width= "250">
-</p><br><br>
+</p><br>
 
 ## How to Contribute?
 
@@ -61,7 +61,7 @@ git push -u origin <your_branch_name>
 **8.** Create a Pull Request!
 
 ##### NOTE
-**Remember to add Fixes #Issue_Number in the Pull Request**
+**Remember to add "Fixes #Issue_Number" in the Pull Request so as to link the PR with the issue**
 
 
 **Congratulations!** you've made your contribution to [Food Delivery App](https://github.com/bharat-1809/fooddelivery_app) project.
