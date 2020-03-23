@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import SignupScreen from "./Screens/SignupScreen";
+import SignupScreen from "./lib/Screens/SignupScreen";
 
 export default function App() {
   return <SignupScreen />;
