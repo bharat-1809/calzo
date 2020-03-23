@@ -8,8 +8,8 @@ import {
   Dimensions
 } from "react-native";
 import Colors from "../constants/colors";
-import InputBox from "../components/InputBox";
-import Button from "../components/Button";
+import InputBox from "../components/SignUpScreen/InputBox";
+import Button from "../components/SignUpScreen/Button";
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
@@ -23,11 +23,11 @@ function SignupScreen(props) {
   return (
     <SafeAreaView style={styles.wrapper}>
       <View style={styles.shapeWrapper}>
-        <View style={styles.square1}></View>
-        <View style={styles.square2}></View>
+        <View style={styles.square1}> </View>
+        <View style={styles.square2}> </View>
       </View>
       <View style={styles.textContainer}>
-        <Text style={styles.titleText}>Create Account</Text>
+        <Text style={styles.titleText}> Create Account </Text>
         <KeyboardAvoidingView
           style={styles.inputContainer}
           behavior="padding"
@@ -95,7 +95,11 @@ const styles = StyleSheet.create({
     height: width / 1.3,
     top: -width / 2,
     left: -width / 10,
-    transform: [{ rotate: "45deg" }],
+    transform: [
+      {
+        rotate: "45deg"
+      }
+    ],
     backgroundColor: Colors.square1,
     borderRadius: 20,
     opacity: 0.8
@@ -107,7 +111,11 @@ const styles = StyleSheet.create({
     top: -width / 2.3,
     left: width / 2.5,
     backgroundColor: Colors.square2,
-    transform: [{ rotate: "45deg" }],
+    transform: [
+      {
+        rotate: "45deg"
+      }
+    ],
     position: "absolute",
     borderRadius: 20,
     opacity: 0.9
@@ -116,7 +124,7 @@ const styles = StyleSheet.create({
   textContainer: {
     flex: 1,
     marginTop: height / 3.7,
-    marginLeft: -10,
+    marginLeft: -10
   },
   titleText: {
     fontSize: 35,

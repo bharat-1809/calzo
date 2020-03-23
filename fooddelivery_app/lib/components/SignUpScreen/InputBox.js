@@ -7,7 +7,7 @@ import {
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-import Colors from "../constants/colors";
+import Colors from "../../constants/colors";
 
 function Input(props) {
   return (
@@ -18,8 +18,8 @@ function Input(props) {
             name={props.iconName}
             size={25}
             color={Colors.primary}
-          />
-        </View>
+          />{" "}
+        </View>{" "}
         <TextInput
           style={styles.input}
           placeholder={props.placeholder}
@@ -28,8 +28,8 @@ function Input(props) {
           keyboardType={props.keyboardType}
           onChangeText={props.onChangeText}
           value={props.value}
-        />
-      </View>
+        />{" "}
+      </View>{" "}
     </KeyboardAvoidingView>
   );
 }
@@ -51,14 +51,14 @@ const styles = StyleSheet.create({
   },
   input: {
     marginTop: "5%",
-    height: 50,
-    width: "85%",
+    height: 48,
+    width: "78%",
     borderTopWidth: 1,
     borderRightWidth: 1,
     borderBottomWidth: 1,
     borderColor: Colors.primary,
     color: "#404040",
-    fontSize: 20,
+    fontSize: 16,
     borderRadius: 30,
     // paddingLeft: 45,
     textAlign: "center",
