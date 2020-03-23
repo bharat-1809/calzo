@@ -26,6 +26,8 @@ function Input(props) {
           placeholderTextColor={Colors.primary}
           secureTextEntry={props.secureText}
           keyboardType={props.keyboardType}
+          onChangeText={props.onChangeText}
+          value={props.value}
         />
       </View>
     </KeyboardAvoidingView>

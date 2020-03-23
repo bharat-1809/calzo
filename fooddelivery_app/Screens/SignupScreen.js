@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -16,6 +16,11 @@ const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 
 function SignupScreen(props) {
+  const [name, setName] = useState("");
+  const [enrollmentNumber, setEnrollmentNumber] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   return (
     <SafeAreaView style={styles.wrapper}>
       <View style={styles.shapeWrapper}>
@@ -24,32 +29,54 @@ function SignupScreen(props) {
       </View>
       <View style={styles.textContainer}>
         <Text style={styles.titleText}>Create account</Text>
-        <KeyboardAvoidingView style={styles.inputContainer}>
-          <InputBox
-            placeholder="Name"
-            iconName="account"
-            secureText={false}
-            keyboardType="default"
-          />
-          <InputBox
-            placeholder="Enrollment Number"
-            iconName="format-list-bulleted"
-            secureText={false}
-            keyboardType="visible-password"
-          />
-          <InputBox
-            placeholder="Phone Number"
-            iconName="phone"
-            secureText={false}
-            keyboardType="numeric"
-          />
-          <InputBox
-            placeholder="Email"
-            iconName="email"
-            secureText={false}
-            keyboardType="email-address"
-          />
-          <InputBox placeholder="password" iconName="lock" secureText={true} />
+        <KeyboardAvoidingView
+          style={styles.inputContainer}
+          behavior="padding"
+          keyboardVerticalOffset={20}
+        >
+          <View style={styles.inner}>
+            <InputBox
+              placeholder="Name"
+              iconName="account"
+              secureText={false}
+              keyboardType="default"
+              value={name}
+              onChangeText={text => {
+                setName(text);
+              }}
+            />
+            <InputBox
+              placeholder="Enrollment Number"
+              iconName="format-list-bulleted"
+              secureText={false}
+              keyboardType="visible-password"
+              value={enrollmentNumber}
+              onChangeText={text => setEnrollmentNumber(text)}
+            />
+            <InputBox
+              placeholder="Phone Number"
+              iconName="phone"
+              secureText={false}
+              keyboardType="numeric"
+              value={phoneNumber}
+              onChangeText={text => setPhoneNumber(text)}
+            />
+            <InputBox
+              placeholder="Email"
+              iconName="email"
+              secureText={false}
+              keyboardType="email-address"
+              value={email}
+              onChangeText={text => setEmail(text)}
+            />
+            <InputBox
+              placeholder="password"
+              iconName="lock"
+              secureText={true}
+              value={password}
+              onChangeText={text => setPassword(text)}
+            />
+          </View>
         </KeyboardAvoidingView>
       </View>
       <View style={styles.buttonContainer}>
@@ -97,6 +124,7 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     maxHeight: "100%",
+    flex: 1,
     justifyContent: "flex-start",
     alignItems: "center",
     marginTop: 10
