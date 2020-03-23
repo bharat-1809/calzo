@@ -7,7 +7,7 @@ import {
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-import Colors from "../constants/colors";
+import Colors from "../../constants/colors";
 
 function Input(props) {
   return (

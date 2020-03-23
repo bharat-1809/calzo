@@ -8,8 +8,8 @@ import {
   Dimensions
 } from "react-native";
 import Colors from "../constants/colors";
-import InputBox from "../components/InputBox";
-import Button from "../components/Button";
+import InputBox from "../components/SignUpScreen/InputBox";
+import Button from "../components/SignUpScreen/Button";
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
