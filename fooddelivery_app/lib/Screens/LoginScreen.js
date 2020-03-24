@@ -5,7 +5,8 @@ import {
   KeyboardAvoidingView,
   StyleSheet,
   SafeAreaView,
-  Dimensions
+  Dimensions,
+  TouchableOpacity
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import Colors from "../constants/colors";
@@ -52,16 +53,21 @@ function LoginScreen(props) {
                 value={password}
                 onChangeText={val => setPass(val)}
               />
-              </View>
+            </View>
           </KeyboardAvoidingView>
           <View style={styles.buttonContainer}>
-              <LoginButton text="LOGIN"/>
+            <LoginButton text="LOGIN" />
           </View>
           <View style={styles.signupContainer}>
-              <Text style={styles.signupText}>Don't have an account?<Text style={styles.signupBold}> Sign Up Now</Text></Text>
+            <Text style={styles.signupText}>Don't have an account?</Text>
+            <TouchableOpacity>
+              <Text style={styles.signupBold}> Sign Up Now</Text>
+            </TouchableOpacity>
           </View>
           <View style={styles.forgetContainer}>
+            <TouchableOpacity>
               <Text style={styles.forgetText}>Forget Password?</Text>
+            </TouchableOpacity>
           </View>
         </LinearGradient>
       </View>
@@ -90,29 +96,32 @@ const styles = StyleSheet.create({
     marginLeft: -(0.117 * width),
     alignContent: "center",
     justifyContent: "center",
-    top: height / 12,
+    top: height / 12
   },
   buttonContainer: {
     //marginLeft: (0.177 * width),
-    top: -(0.201 * height),
+    top: -(0.201 * height)
   },
   signupContainer: {
-      top: -(0.160 * height),
+    top: -(0.16 * height),
+    flexDirection: "row"
   },
   signupText: {
     fontSize: 10.5,
-    color: Colors.background,
+    color: Colors.background
   },
   signupBold: {
-    fontWeight: 'bold',
+    fontSize: 10.5,
+    color: Colors.background,
+    fontWeight: "bold"
   },
   forgetContainer: {
-    top: -(0.035 * height),
+    top: -(0.035 * height)
   },
   forgetText: {
     fontSize: 10.5,
     fontWeight: "bold",
-    color: Colors.background,
-  },
+    color: Colors.background
+  }
 });
 export default LoginScreen;
