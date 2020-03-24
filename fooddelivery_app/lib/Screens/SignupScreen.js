@@ -31,7 +31,8 @@ function SignupScreen(props) {
         <KeyboardAvoidingView
           style={styles.inputContainer}
           behavior="padding"
-          keyboardVerticalOffset={20}
+          keyboardVerticalOffset={height/2}
+          enabled
         >
           <View style={styles.inner}>
             <InputBox
