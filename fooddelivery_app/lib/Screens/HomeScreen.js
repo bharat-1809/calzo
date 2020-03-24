@@ -1,19 +1,62 @@
-import React, { useState } from "react";
-import { SafeAreaView, Text, StyleSheet, View, FlatList } from "react-native";
+import React, { useState, useEffect } from "react";
+import {
+  SafeAreaView,
+  Text,
+  StyleSheet,
+  View,
+  FlatList,
+  YellowBox
+} from "react-native";
+import _ from "lodash";
 
 import Colors from "../constants/colors";
+import Firebase from "../constants/firebase";
 
 import TopBar from "../components/HomeScreen/TopBar";
 import Options from "../components/HomeScreen/Options";
 import Card from "../components/HomeScreen/Card";
+//This is to ignore warnings about delay of receiving data from firebase.
+YellowBox.ignoreWarnings(["Setting a timer"]);
+const _console = _.clone(console);
+console.warn = message => {
+  if (message.indexOf("Setting a timer") <= -1) {
+    _console.warn(message);
+  }
+};
 
 function HomeScreen(props) {
+  const [loading, setloading] = useState(true);
   const [searchText, setSearchText] = useState("");
   const [numberOfItems, setNumberOfItems] = useState(7);
   const [vegSelected, setVegSelected] = useState(false);
   const [nonVegSelected, setNonVegSelected] = useState(false);
   const [pizzaManiaSelected, setPizzaManiaSelected] = useState(false);
   const [sidesSelected, setSidesSelected] = useState(false);
+  const [vegPizza, setVegPizza] = useState([]);
+  useEffect(() => {
+    const db = Firebase.firestore()
+      .collection("restaurants")
+      .doc("domino's")
+      .collection("Veg");
+    var list = [];
+    db.get().then(snapshot => {
+      snapshot.forEach(doc => {
+        const { large, medium, name, regular } = doc.data();
+        list.push({
+          id: doc.id,
+          name,
+          regular,
+          medium,
+          large
+        });
+      });
+    });
+    setVegPizza(list);
+    console.log(vegPizza);
+    if (loading) {
+      setloading(false);
+    }
+  }, []);
   function selectedHandler(num) {
     if (num == 0) {
       setVegSelected(!vegSelected);
@@ -25,31 +68,9 @@ function HomeScreen(props) {
       setSidesSelected(!sidesSelected);
     }
   }
-  //dummy data
-  const data = [
-    {
-      id: "1",
-      title: "Indie Panner"
-    },
-    {
-      id: "2",
-      title: "Farmhouse"
-    },
-    {
-      id: "3",
-      title: "Fresh Vegie"
-    },
-    {
-      id: "4",
-      title: "Chicken Dominator"
-    },
-    {
-      id: "5",
-      title: "Chicken Barbecue"
-    }
-  ];
-  function Item({ title }) {
-    return <Card title={title} />;
+
+  function Item({ title, price }) {
+    return <Card title={title} price={price} />;
   }
   return (
     <SafeAreaView style={styles.wrapper}>
@@ -82,8 +103,11 @@ function HomeScreen(props) {
       </View>
       <View style={styles.line}></View>
       <FlatList
-        data={data}
-        renderItem={({ item }) => <Item title={item.title} />}
+        data={vegPizza}
+        keyExtractor={item => item.id}
+        renderItem={({ item }) => (
+          <Item title={item.name} price={item.regular} />
+        )}
         numColumns={2}
       />
     </SafeAreaView>

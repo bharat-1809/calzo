@@ -16,7 +16,7 @@ function Card(props) {
       <View style={styles.detailsContainer}>
         <Text style={styles.name}> {props.title} </Text>
         <View style={styles.priceContainer}>
-          <Text>Rs. 190</Text>
+          <Text>Rs.{props.price}</Text>
           <TouchableOpacity style={styles.addButton}>
             <Text style={styles.addText}>ADD</Text>
           </TouchableOpacity>
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     color: "white"
   },
   name: {
-    fontSize: 16
+    fontSize: 14
   }
 });
 export default Card;
