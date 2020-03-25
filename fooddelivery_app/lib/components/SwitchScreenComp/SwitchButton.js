@@ -14,23 +14,25 @@ const SwitchScreenButton = props =>{
 const styles = StyleSheet.create({
    
     buttonStyle: {
-        width: (0.5 * width),
-        height: (0.066 * height),
+        width: (0.38 * width),
+        height: (0.058 * height),
         position:'absolute',
         borderWidth: 2,
-        marginTop: 700, 
+        marginTop: (0.914 * height), 
         padding: 5,
         alignSelf: 'center',
         justifyContent: 'center',
         elevation: 5,
         borderRadius: 70,
-        borderColor: '#ffffff', 
+        borderColor: '#ffffff',
+        // shadowOpacity: 0.5,
+        // shadowColor: '#ffffff', 
     },
     
     textStyle:{
         alignSelf: 'center',
         color: '#ffffff',
-        fontSize: 20
+        fontSize: 19,
     }
 });
 

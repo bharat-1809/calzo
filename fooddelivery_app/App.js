@@ -2,9 +2,9 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import SignupScreen from "./lib/Screens/SignupScreen";
 import LoginScreen from "./lib/Screens/LoginScreen";
-
+import SelectSizeScreen from "./lib/Screens/SelectSizeScreen";
 export default function App() {
-  return <LoginScreen/>;
+  return <SelectSizeScreen/>;
 }
 
 const styles = StyleSheet.create({
