@@ -37,6 +37,7 @@ function HomeScreen(props) {
   const [nonVegPizza, setNonVegPizza] = useState([]);
   const [sides, setSides] = useState([]);
   const [data, setData] = useState([]);
+  const [completeData, setCompleteData] = useState([]);
   useEffect(() => {
     if (loading) {
       var data1 = [];
@@ -95,6 +96,7 @@ function HomeScreen(props) {
         setNonVegPizza(list);
         data1 = [...data1, ...list];
         setData(data1);
+        setCompleteData(data1);
         if (loading) {
           setLoading(false);
         }
@@ -141,10 +143,24 @@ function HomeScreen(props) {
       numColumns={2}
     />
   );
+  function searchTextHandler(text) {
+    setSearchText(text);
+    if (text === "") {
+      setData(completeData);
+      return;
+    }
+    const newData = completeData.filter(item => {
+      const itemData = item.name.toUpperCase();
+      const textData = text.toUpperCase();
+      return itemData.indexOf(textData) > -1;
+    });
+
+    setData(newData);
+  }
   return (
     <SafeAreaView style={styles.wrapper}>
       <TopBar
-        onChangeText={text => setSearchText(text)}
+        onChangeText={text => searchTextHandler(text)}
         value={searchText}
         numberOfItems={numberOfItems}
       />
