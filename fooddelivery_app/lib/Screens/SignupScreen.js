@@ -14,7 +14,7 @@ import Button from "../components/SignUpScreen/Button";
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 
-function SignupScreen({ navigation }) {
+function SignupScreen(props) {
   const [name, setName] = useState("");
   const [enrollmentNumber, setEnrollmentNumber] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -31,7 +31,7 @@ function SignupScreen({ navigation }) {
         <KeyboardAvoidingView
           style={styles.inputContainer}
           behavior="padding"
-          keyboardVerticalOffset={height/2}
+          keyboardVerticalOffset={height / 2}
           enabled
         >
           <View style={styles.inner}>
@@ -89,7 +89,7 @@ function SignupScreen({ navigation }) {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    backgroundColor: Colors.background,
+    backgroundColor: Colors.background
   },
   square1: {
     position: "absolute",
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
   textContainer: {
     flex: 1,
     marginTop: height / 3.7,
-    marginLeft: -10,
+    marginLeft: -10
   },
   titleText: {
     fontSize: 35,

@@ -17,7 +17,7 @@ import SignupScreen from "../Screens/SignupScreen";
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 
-function LoginScreen({ navigation }) {
+function LoginScreen(props) {
   const [email, setEmail] = useState("");
   const [password, setPass] = useState("");
   const [termsCond, setTermsCond] = useState("");
@@ -62,7 +62,7 @@ function LoginScreen({ navigation }) {
           <View style={styles.signupContainer}>
             <Text style={styles.signupText}>Don't have an account?</Text>
             <TouchableOpacity
-            onPress= {() => navigation.navigate(SignupScreen)}
+              onPress={() => props.navigation.navigate(SignupScreen)}
             >
               <Text style={styles.signupBold}> Sign Up Now</Text>
             </TouchableOpacity>
