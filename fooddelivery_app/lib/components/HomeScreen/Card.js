@@ -9,6 +9,7 @@ import {
 } from "react-native";
 
 const width = Dimensions.get("window").width;
+
 function Card(props) {
   return (
     <View style={styles.wrapper}>
@@ -16,9 +17,9 @@ function Card(props) {
       <View style={styles.detailsContainer}>
         <Text style={styles.name}> {props.title} </Text>
         <View style={styles.priceContainer}>
-          <Text>Rs.{props.price}</Text>
+          <Text> Rs. {props.price} </Text>
           <TouchableOpacity style={styles.addButton}>
-            <Text style={styles.addText}>ADD</Text>
+            <Text style={styles.addText}> ADD </Text>
           </TouchableOpacity>
         </View>
       </View>

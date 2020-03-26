@@ -5,7 +5,8 @@ import {
   StyleSheet,
   View,
   FlatList,
-  YellowBox
+  YellowBox,
+  ActivityIndicator
 } from "react-native";
 import _ from "lodash";
 
@@ -25,7 +26,7 @@ console.warn = message => {
 };
 
 function HomeScreen(props) {
-  const [loading, setloading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [searchText, setSearchText] = useState("");
   const [numberOfItems, setNumberOfItems] = useState(7);
   const [vegSelected, setVegSelected] = useState(false);
@@ -33,14 +34,18 @@ function HomeScreen(props) {
   const [pizzaManiaSelected, setPizzaManiaSelected] = useState(false);
   const [sidesSelected, setSidesSelected] = useState(false);
   const [vegPizza, setVegPizza] = useState([]);
+  const [nonVegPizza, setNonVegPizza] = useState([]);
+  const [sides, setSides] = useState([]);
+  const [data, setData] = useState([]);
   useEffect(() => {
+    var data1 = [];
     const db = Firebase.firestore()
       .collection("restaurants")
       .doc("domino's")
       .collection("Veg");
-    var list = [];
-    db.get().then(snapshot => {
-      snapshot.forEach(doc => {
+    db.onSnapshot(querySnapshot => {
+      var list = [];
+      querySnapshot.forEach(doc => {
         const { large, medium, name, regular } = doc.data();
         list.push({
           id: doc.id,
@@ -50,12 +55,49 @@ function HomeScreen(props) {
           large
         });
       });
+      setVegPizza(list);
+      data1 = [...data1, ...list];
     });
-    setVegPizza(list);
-    console.log(vegPizza);
-    if (loading) {
-      setloading(false);
-    }
+    const db1 = Firebase.firestore()
+      .collection("restaurants")
+      .doc("domino's")
+      .collection("sides");
+    db1.onSnapshot(querySnapshot => {
+      var list = [];
+      querySnapshot.forEach(doc => {
+        const { name, regular } = doc.data();
+        list.push({
+          id: doc.id,
+          name,
+          regular
+        });
+      });
+      setSides(list);
+      data1 = [...data1, ...list];
+    });
+    const db2 = Firebase.firestore()
+      .collection("restaurants")
+      .doc("domino's")
+      .collection("nonVeg");
+    db2.onSnapshot(querySnapshot => {
+      var list = [];
+      querySnapshot.forEach(doc => {
+        const { large, medium, name, regular } = doc.data();
+        list.push({
+          id: doc.id,
+          name,
+          regular,
+          medium,
+          large
+        });
+      });
+      setNonVegPizza(list);
+      data1 = [...data1, ...list];
+      setData(data1);
+      if (loading) {
+        setLoading(false);
+      }
+    });
   }, []);
   function selectedHandler(num) {
     if (num == 0) {
@@ -67,11 +109,31 @@ function HomeScreen(props) {
     } else if (num == 3) {
       setSidesSelected(!sidesSelected);
     }
+    let d = [];
+    if (!vegSelected) {
+      d = [...d, ...vegPizza];
+      console.log("inside", vegSelected);
+    }
+    if (!nonVegSelected) {
+      d = [...d, ...nonVegPizza];
+      console.log("greet");
+    }
+    // setData(d);
   }
 
   function Item({ title, price }) {
     return <Card title={title} price={price} />;
   }
+  const load = loading ? (
+    <ActivityIndicator color="blue" />
+  ) : (
+    <FlatList
+      data={data}
+      keyExtractor={item => item.id}
+      renderItem={({ item }) => <Item title={item.name} price={item.regular} />}
+      numColumns={2}
+    />
+  );
   return (
     <SafeAreaView style={styles.wrapper}>
       <TopBar
@@ -102,14 +164,7 @@ function HomeScreen(props) {
         />
       </View>
       <View style={styles.line}></View>
-      <FlatList
-        data={vegPizza}
-        keyExtractor={item => item.id}
-        renderItem={({ item }) => (
-          <Item title={item.name} price={item.regular} />
-        )}
-        numColumns={2}
-      />
+      {load}
     </SafeAreaView>
   );
 }
