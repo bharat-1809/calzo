@@ -38,66 +38,68 @@ function HomeScreen(props) {
   const [sides, setSides] = useState([]);
   const [data, setData] = useState([]);
   useEffect(() => {
-    var data1 = [];
-    const db = Firebase.firestore()
-      .collection("restaurants")
-      .doc("domino's")
-      .collection("Veg");
-    db.onSnapshot(querySnapshot => {
-      var list = [];
-      querySnapshot.forEach(doc => {
-        const { large, medium, name, regular } = doc.data();
-        list.push({
-          id: doc.id,
-          name,
-          regular,
-          medium,
-          large
+    if (loading) {
+      var data1 = [];
+      const db = Firebase.firestore()
+        .collection("restaurants")
+        .doc("domino's")
+        .collection("Veg");
+      db.onSnapshot(querySnapshot => {
+        var list = [];
+        querySnapshot.forEach(doc => {
+          const { large, medium, name, regular } = doc.data();
+          list.push({
+            id: doc.id,
+            name,
+            regular,
+            medium,
+            large
+          });
         });
+        setVegPizza(list);
+        data1 = [...data1, ...list];
       });
-      setVegPizza(list);
-      data1 = [...data1, ...list];
-    });
-    const db1 = Firebase.firestore()
-      .collection("restaurants")
-      .doc("domino's")
-      .collection("sides");
-    db1.onSnapshot(querySnapshot => {
-      var list = [];
-      querySnapshot.forEach(doc => {
-        const { name, regular } = doc.data();
-        list.push({
-          id: doc.id,
-          name,
-          regular
+      const db1 = Firebase.firestore()
+        .collection("restaurants")
+        .doc("domino's")
+        .collection("sides");
+      db1.onSnapshot(querySnapshot => {
+        var list = [];
+        querySnapshot.forEach(doc => {
+          const { name, regular } = doc.data();
+          list.push({
+            id: doc.id,
+            name,
+            regular
+          });
         });
+        setSides(list);
+        data1 = [...data1, ...list];
       });
-      setSides(list);
-      data1 = [...data1, ...list];
-    });
-    const db2 = Firebase.firestore()
-      .collection("restaurants")
-      .doc("domino's")
-      .collection("nonVeg");
-    db2.onSnapshot(querySnapshot => {
-      var list = [];
-      querySnapshot.forEach(doc => {
-        const { large, medium, name, regular } = doc.data();
-        list.push({
-          id: doc.id,
-          name,
-          regular,
-          medium,
-          large
+      const db2 = Firebase.firestore()
+        .collection("restaurants")
+        .doc("domino's")
+        .collection("nonVeg");
+      db2.onSnapshot(querySnapshot => {
+        var list = [];
+        querySnapshot.forEach(doc => {
+          const { large, medium, name, regular } = doc.data();
+          list.push({
+            id: doc.id,
+            name,
+            regular,
+            medium,
+            large
+          });
         });
+        setNonVegPizza(list);
+        data1 = [...data1, ...list];
+        setData(data1);
+        if (loading) {
+          setLoading(false);
+        }
       });
-      setNonVegPizza(list);
-      data1 = [...data1, ...list];
-      setData(data1);
-      if (loading) {
-        setLoading(false);
-      }
-    });
+    }
   }, []);
   function selectedHandler(num) {
     if (num == 0) {
@@ -109,18 +111,23 @@ function HomeScreen(props) {
     } else if (num == 3) {
       setSidesSelected(!sidesSelected);
     }
-    let d = [];
-    if (!vegSelected) {
-      d = [...d, ...vegPizza];
-      console.log("inside", vegSelected);
-    }
-    if (!nonVegSelected) {
-      d = [...d, ...nonVegPizza];
-      console.log("greet");
-    }
-    // setData(d);
   }
-
+  useEffect(() => {
+    var d = [];
+    if (vegSelected) {
+      d = [...d, ...vegPizza];
+    }
+    if (nonVegSelected) {
+      d = [...d, ...nonVegPizza];
+    }
+    if (sidesSelected) {
+      d = [...d, ...sides];
+    }
+    if (d.length === 0) {
+      d = [...vegPizza, ...nonVegPizza, ...sides];
+    }
+    setData(d);
+  }, [vegSelected, nonVegSelected, sidesSelected, pizzaManiaSelected]);
   function Item({ title, price }) {
     return <Card title={title} price={price} />;
   }
