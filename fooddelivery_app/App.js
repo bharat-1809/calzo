@@ -4,7 +4,7 @@ import SignupScreen from "./lib/Screens/SignupScreen";
 import LoginScreen from "./lib/Screens/LoginScreen";
 import SelectSizeScreen from "./lib/Screens/SelectSizeScreen";
 export default function App() {
-  return <SelectSizeScreen/>;
+  return <LoginScreen/>;
 }
 
 const styles = StyleSheet.create({
