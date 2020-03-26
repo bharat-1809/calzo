@@ -88,7 +88,8 @@ function SignupScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   wrapper: {
-    flex: 1
+    flex: 1,
+    backgroundColor: Colors.background,
   },
   square1: {
     position: "absolute",

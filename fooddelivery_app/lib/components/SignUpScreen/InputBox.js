@@ -11,7 +11,11 @@ import Colors from "../../constants/colors";
 
 function Input(props) {
   return (
-    <KeyboardAvoidingView>
+    <KeyboardAvoidingView
+      enabled
+      behavior="padding"
+      keyboardVerticalOffset={10}
+    >
       <View style={styles.inputBox}>
         <View style={styles.icon}>
           <MaterialCommunityIcons
