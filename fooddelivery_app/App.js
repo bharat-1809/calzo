@@ -6,6 +6,9 @@ import {
 } from "react-native";
 import MainNavigator from './lib/navigation/MainNavigator';
 
+if (!global.atob) {
+  global.atob = decode;
+}
 export default function App() {
   return ( < MainNavigator / > );
 }
