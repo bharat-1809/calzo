@@ -14,7 +14,7 @@ import Button from "../components/SignUpScreen/Button";
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 
-function SignupScreen(props) {
+function SignupScreen({ navigation }) {
   const [name, setName] = useState("");
   const [enrollmentNumber, setEnrollmentNumber] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
