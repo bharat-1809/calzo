@@ -1,9 +1,13 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import SignupScreen from "./lib/Screens/SignupScreen";
+import {
+  StyleSheet,
+  Text,
+  View
+} from "react-native";
+import MainNavigator from './lib/navigation/MainNavigator';
 
 export default function App() {
-  return <SignupScreen />;
+  return ( < MainNavigator / > );
 }
 
 const styles = StyleSheet.create({

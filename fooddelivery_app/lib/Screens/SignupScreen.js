@@ -31,7 +31,8 @@ function SignupScreen(props) {
         <KeyboardAvoidingView
           style={styles.inputContainer}
           behavior="padding"
-          keyboardVerticalOffset={20}
+          keyboardVerticalOffset={height / 2}
+          enabled
         >
           <View style={styles.inner}>
             <InputBox
@@ -87,7 +88,8 @@ function SignupScreen(props) {
 
 const styles = StyleSheet.create({
   wrapper: {
-    flex: 1
+    flex: 1,
+    backgroundColor: Colors.background
   },
   square1: {
     position: "absolute",
@@ -116,7 +118,7 @@ const styles = StyleSheet.create({
   textContainer: {
     flex: 1,
     marginTop: height / 3.7,
-    marginLeft: -10,
+    marginLeft: -10
   },
   titleText: {
     fontSize: 35,

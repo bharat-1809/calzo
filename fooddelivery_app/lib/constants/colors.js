@@ -4,5 +4,7 @@ export default {
     square2: '#fd7362',
     text: '#5d5d5d',
     primary: '#fc475f',
-    blurText: '#8a8a8a'
+    blurText: '#8a8a8a',
+    loginbuttonText: '#ff1744ff',
+    buttonGrey: '#343434ff',
 }
