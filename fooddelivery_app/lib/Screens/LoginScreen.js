@@ -12,6 +12,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import Colors from "../constants/colors";
 import LoginButton from "../components/LoginScreenComp/LoginButton";
 import LoginInput from "../components/LoginScreenComp/LoginInputBox";
+import SignupScreen from "../Screens/SignupScreen";
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
@@ -60,7 +61,9 @@ function LoginScreen(props) {
           </View>
           <View style={styles.signupContainer}>
             <Text style={styles.signupText}>Don't have an account?</Text>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => props.navigation.navigate(SignupScreen)}
+            >
               <Text style={styles.signupBold}> Sign Up Now</Text>
             </TouchableOpacity>
           </View>
