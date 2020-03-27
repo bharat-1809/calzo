@@ -97,7 +97,11 @@ const styles = StyleSheet.create({
     height: width / 1.3,
     top: -width / 2,
     left: -width / 10,
-    transform: [{ rotate: "45deg" }],
+    transform: [
+      {
+        rotate: "45deg"
+      }
+    ],
     backgroundColor: Colors.square1,
     borderRadius: 20,
     opacity: 0.8
@@ -109,7 +113,11 @@ const styles = StyleSheet.create({
     top: -width / 2.3,
     left: width / 2.5,
     backgroundColor: Colors.square2,
-    transform: [{ rotate: "45deg" }],
+    transform: [
+      {
+        rotate: "45deg"
+      }
+    ],
     position: "absolute",
     borderRadius: 20,
     opacity: 0.9
