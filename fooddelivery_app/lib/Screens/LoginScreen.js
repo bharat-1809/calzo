@@ -13,7 +13,6 @@ import Colors from "../constants/colors";
 import LoginButton from "../components/LoginScreenComp/LoginButton";
 import LoginInput from "../components/LoginScreenComp/LoginInputBox";
 import SignupScreen from "../Screens/SignupScreen";
-import HomeScreen from "./HomeScreen";
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
@@ -58,10 +57,7 @@ function LoginScreen(props) {
             </View>
           </KeyboardAvoidingView>
           <View style={styles.buttonContainer}>
-            <LoginButton
-              text="LOGIN"
-              onPress={() => props.navigation.navigate(HomeScreen)}
-            />
+            <LoginButton text="LOGIN" />
           </View>
           <View style={styles.signupContainer}>
             <Text style={styles.signupText}>Don't have an account?</Text>
