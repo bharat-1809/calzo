@@ -1,25 +1,16 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, AppRegistry } from "react-native";
-import MainNavigator from "./lib/navigation/MainNavigator";
-import HomeScreen from "./lib/Screens/HomeScreen";
+import { StyleSheet, Text, View } from "react-native";
 import * as Font from "expo-font";
 import { AppLoading } from "expo";
-AppRegistry.registerComponent("food delivery", () => App);
-import { decode, encode } from "base-64";
-if (!global.btoa) {
-  global.btoa = encode;
-}
+import MainNavigator from "./lib/navigation/MainNavigator";
 
 const getFonts = () =>
   Font.loadAsync({
-    "comicSans-Regular": require("./assets/fonts/OpenSans-Regular.ttf"),
-    "comicSans-Bold": require("./assets/fonts/OpenSans-Bold.ttf"),
-    "comicSans-SemiBold": require("./assets/fonts/OpenSans-SemiBold.ttf")
+    "comicSans-Regular": require('./assets/fonts/OpenSans-Regular.ttf'),
+    "comicSans-Bold": require('./assets/fonts/OpenSans-Bold.ttf'),
+    "comicSans-SemiBold": require('./assets/fonts/OpenSans-SemiBold.ttf'),
   });
 
-if (!global.atob) {
-  global.atob = decode;
-}
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
