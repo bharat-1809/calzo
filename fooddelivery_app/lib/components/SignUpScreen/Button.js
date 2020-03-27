@@ -3,6 +3,7 @@ import { TouchableOpacity, Text, View, StyleSheet } from "react-native";
 
 import Colors from "../../constants/colors";
 import { LinearGradient } from "expo-linear-gradient";
+
 function Button(props) {
   return (
     <TouchableOpacity>
@@ -11,7 +12,7 @@ function Button(props) {
         style={styles.wrapper}
         start={[0.7, 0.5]}
       >
-        <Text style={styles.text}>{props.text}</Text>
+        <Text style={styles.text}> {props.text} </Text>
       </LinearGradient>
     </TouchableOpacity>
   );
@@ -25,12 +26,12 @@ const styles = StyleSheet.create({
     height: 55,
     borderRadius: 40,
     alignSelf: "center",
-    elevation: 4,
+    elevation: 4
   },
   text: {
     color: "white",
     fontSize: 22,
-    fontFamily: 'comicSans-Bold',
+    fontFamily: "comicSans-Bold"
   }
 });
 export default Button;
