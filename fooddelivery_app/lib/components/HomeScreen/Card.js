@@ -11,10 +11,6 @@ import images from "../../constants/images";
 const width = Dimensions.get("window").width;
 
 function Card(props) {
-  var image = [
-    require("../../../assets/database/PIZZA/Veg_Pizza/Veggie_Paradise.jpg"),
-    require("../../../assets/database/PIZZA/Veg_Pizza/Veg_Extravaganz.jpg")
-  ];
   return (
     <View style={styles.wrapper}>
       <Image source={images.image[props.url]} style={styles.image} />
@@ -70,7 +66,9 @@ const styles = StyleSheet.create({
     color: "white"
   },
   name: {
-    fontSize: 14
+    fontSize: 14,
+    textAlign: "center",
+    fontFamily: "comicSans-regular"
   }
 });
 export default Card;

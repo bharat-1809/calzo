@@ -40,7 +40,7 @@ function HomeScreen(props) {
   const [data, setData] = useState([]);
   const [completeData, setCompleteData] = useState([]);
   useEffect(() => {
-    if (true) {
+    if (loading) {
       var data1 = [];
       const db = Firebase.firestore()
         .collection("restaurants")
