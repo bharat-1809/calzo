@@ -70,7 +70,7 @@ function SignupScreen(props) {
               onChangeText={text => setEmail(text)}
             />
             <InputBox
-              placeholder="password"
+              placeholder="Password"
               iconName="lock-outline"
               secureText={true}
               value={password}
@@ -129,10 +129,10 @@ const styles = StyleSheet.create({
     marginLeft: -10
   },
   titleText: {
-    fontSize: 35,
+    fontSize: 33.5,
     color: Colors.text,
     marginLeft: 30,
-    fontWeight: "bold"
+    fontFamily: 'comicSans-Bold',
   },
   inputContainer: {
     maxHeight: "100%",
