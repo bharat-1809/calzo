@@ -7,13 +7,17 @@ import {
   Image,
   TouchableOpacity
 } from "react-native";
-
+import images from "../../constants/images";
 const width = Dimensions.get("window").width;
 
 function Card(props) {
+  var image = [
+    require("../../../assets/database/PIZZA/Veg_Pizza/Veggie_Paradise.jpg"),
+    require("../../../assets/database/PIZZA/Veg_Pizza/Veg_Extravaganz.jpg")
+  ];
   return (
     <View style={styles.wrapper}>
-      <Image source={require("./pizza.png")} style={styles.image} />
+      <Image source={images.image[props.url]} style={styles.image} />
       <View style={styles.detailsContainer}>
         <Text style={styles.name}> {props.title} </Text>
         <View style={styles.priceContainer}>
@@ -37,7 +41,8 @@ const styles = StyleSheet.create({
   },
   image: {
     height: width / 2.8,
-    width: width / 2.2
+    width: width / 2.2,
+    backgroundColor: "white"
   },
   detailsContainer: {
     flex: 1,

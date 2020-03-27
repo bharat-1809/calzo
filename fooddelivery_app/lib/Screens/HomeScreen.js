@@ -36,10 +36,11 @@ function HomeScreen(props) {
   const [vegPizza, setVegPizza] = useState([]);
   const [nonVegPizza, setNonVegPizza] = useState([]);
   const [sides, setSides] = useState([]);
+  const [pizzaMania, setPizzaMania] = useState([]);
   const [data, setData] = useState([]);
   const [completeData, setCompleteData] = useState([]);
   useEffect(() => {
-    if (loading) {
+    if (true) {
       var data1 = [];
       const db = Firebase.firestore()
         .collection("restaurants")
@@ -48,13 +49,14 @@ function HomeScreen(props) {
       db.onSnapshot(querySnapshot => {
         var list = [];
         querySnapshot.forEach(doc => {
-          const { large, medium, name, regular } = doc.data();
+          const { large, medium, name, regular, url } = doc.data();
           list.push({
             id: doc.id,
             name,
             regular,
             medium,
-            large
+            large,
+            url
           });
         });
         setVegPizza(list);
@@ -67,11 +69,12 @@ function HomeScreen(props) {
       db1.onSnapshot(querySnapshot => {
         var list = [];
         querySnapshot.forEach(doc => {
-          const { name, regular } = doc.data();
+          const { name, regular, url } = doc.data();
           list.push({
             id: doc.id,
             name,
-            regular
+            regular,
+            url
           });
         });
         setSides(list);
@@ -84,16 +87,35 @@ function HomeScreen(props) {
       db2.onSnapshot(querySnapshot => {
         var list = [];
         querySnapshot.forEach(doc => {
-          const { large, medium, name, regular } = doc.data();
+          const { large, medium, name, regular, url } = doc.data();
           list.push({
             id: doc.id,
             name,
             regular,
             medium,
-            large
+            large,
+            url
           });
         });
         setNonVegPizza(list);
+        data1 = [...data1, ...list];
+      });
+      const db3 = Firebase.firestore()
+        .collection("restaurants")
+        .doc("domino's")
+        .collection("pizzaMania");
+      db3.onSnapshot(querySnapshot => {
+        var list = [];
+        querySnapshot.forEach(doc => {
+          const { name, regular, url } = doc.data();
+          list.push({
+            id: doc.id,
+            name,
+            regular,
+            url
+          });
+        });
+        setPizzaMania(list);
         data1 = [...data1, ...list];
         setData(data1);
         setCompleteData(data1);
@@ -125,13 +147,16 @@ function HomeScreen(props) {
     if (sidesSelected) {
       d = [...d, ...sides];
     }
+    if (pizzaManiaSelected) {
+      d = [...d, ...pizzaMania];
+    }
     if (d.length === 0) {
       d = [...vegPizza, ...nonVegPizza, ...sides];
     }
     setData(d);
   }, [vegSelected, nonVegSelected, sidesSelected, pizzaManiaSelected]);
-  function Item({ title, price }) {
-    return <Card title={title} price={price} />;
+  function Item({ title, price, url }) {
+    return <Card title={title} price={price} url={url} />;
   }
   const load = loading ? (
     <ActivityIndicator color="blue" />
@@ -139,7 +164,9 @@ function HomeScreen(props) {
     <FlatList
       data={data}
       keyExtractor={item => item.id}
-      renderItem={({ item }) => <Item title={item.name} price={item.regular} />}
+      renderItem={({ item }) => (
+        <Item title={item.name} price={item.regular} url={item.url} />
+      )}
       numColumns={2}
     />
   );
