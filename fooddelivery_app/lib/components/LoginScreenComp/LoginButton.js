@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 22.5,
     color: Colors.loginbuttonText,
-    fontWeight: "bold",
+    fontFamily: 'comicSans-Bold',
   }
 });
 export default LoginButton;

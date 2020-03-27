@@ -29,8 +29,8 @@ const styles = StyleSheet.create({
   },
   text: {
     color: "white",
-    fontSize: 22.5,
-    fontWeight: "bold",
+    fontSize: 22,
+    fontFamily: 'comicSans-Bold',
   }
 });
 export default Button;

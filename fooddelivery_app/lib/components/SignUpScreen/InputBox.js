@@ -63,6 +63,7 @@ const styles = StyleSheet.create({
     borderColor: Colors.primary,
     color: "#404040",
     fontSize: 16,
+    fontFamily: 'comicSans-Regular',
     borderRadius: 30,
     // paddingLeft: 45,
     textAlign: "center",

@@ -111,20 +111,21 @@ const styles = StyleSheet.create({
   },
   signupText: {
     fontSize: 10.5,
-    color: Colors.background
+    color: Colors.background,
+    fontFamily: 'comicSans-Regular',
   },
   signupBold: {
     fontSize: 10.5,
     color: Colors.background,
-    fontWeight: "bold"
+    fontFamily: 'comicSans-Bold',
   },
   forgetContainer: {
     top: -(0.035 * height)
   },
   forgetText: {
     fontSize: 10.5,
-    fontWeight: "bold",
-    color: Colors.background
+    fontFamily: 'comicSans-Bold',
+    color: Colors.background,
   }
 });
 export default LoginScreen;
