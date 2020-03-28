@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 14,
     textAlign: "center",
-    fontFamily: "comicSans-regular"
+    fontFamily: "comicSans-Regular"
   }
 });
 export default Card;

@@ -60,7 +60,8 @@ const styles = StyleSheet.create({
   input: {
     width: "100%",
     paddingLeft: 10,
-    fontSize: 16
+    fontSize: 16,
+    fontFamily: "comicSans-Regular",
   },
   numberContainer: {
     position: "absolute",
@@ -74,7 +75,8 @@ const styles = StyleSheet.create({
     borderRadius: 7
   },
   number: {
-    fontSize: 11
+    fontSize: 11,
+    fontFamily: "comicSans-Regular",
   }
 });
 

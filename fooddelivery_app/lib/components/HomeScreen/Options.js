@@ -20,7 +20,8 @@ const styles = StyleSheet.create({
     paddingVertical: 7,
     color: "white",
     backgroundColor: "#03a9f4",
-    borderRadius: 20
+    borderRadius: 20,
+    fontFamily: "comicSans-Regular",
   },
   selected: {
     backgroundColor: "white",
