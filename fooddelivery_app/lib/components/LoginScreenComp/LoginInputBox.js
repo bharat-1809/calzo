@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     width: 0.746 * width,
     height: 0.066 * height,
     fontSize: 18,
-    fontWeight: "400",
+    fontFamily: 'comicSans-Regular',
     textAlign: "center",
     color: Colors.background
   }
