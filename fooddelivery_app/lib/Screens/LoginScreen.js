@@ -12,6 +12,8 @@ import { LinearGradient } from "expo-linear-gradient";
 import Colors from "../constants/colors";
 import LoginButton from "../components/LoginScreenComp/LoginButton";
 import LoginInput from "../components/LoginScreenComp/LoginInputBox";
+import SignupScreen from "../Screens/SignupScreen";
+import HomeScreen from "./HomeScreen";
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
@@ -56,11 +58,16 @@ function LoginScreen(props) {
             </View>
           </KeyboardAvoidingView>
           <View style={styles.buttonContainer}>
-            <LoginButton text="LOGIN" />
+            <LoginButton
+              text="LOGIN"
+              onPress={() => props.navigation.navigate(HomeScreen)}
+            />
           </View>
           <View style={styles.signupContainer}>
             <Text style={styles.signupText}>Don't have an account?</Text>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => props.navigation.navigate(SignupScreen)}
+            >
               <Text style={styles.signupBold}> Sign Up Now</Text>
             </TouchableOpacity>
           </View>
@@ -108,20 +115,21 @@ const styles = StyleSheet.create({
   },
   signupText: {
     fontSize: 10.5,
-    color: Colors.background
+    color: Colors.background,
+    fontFamily: 'comicSans-Regular',
   },
   signupBold: {
     fontSize: 10.5,
     color: Colors.background,
-    fontWeight: "bold"
+    fontFamily: 'comicSans-Bold',
   },
   forgetContainer: {
     top: -(0.035 * height)
   },
   forgetText: {
     fontSize: 10.5,
-    fontWeight: "bold",
-    color: Colors.background
+    fontFamily: 'comicSans-Bold',
+    color: Colors.background,
   }
 });
 export default LoginScreen;

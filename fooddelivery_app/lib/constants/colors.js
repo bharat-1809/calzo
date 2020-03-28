@@ -6,4 +6,5 @@ export default {
     primary: '#fc475f',
     blurText: '#8a8a8a',
     loginbuttonText: '#ff1744ff',
+    buttonGrey: '#343434ff',
 }

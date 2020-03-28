@@ -31,7 +31,7 @@ function SignupScreen(props) {
         <KeyboardAvoidingView
           style={styles.inputContainer}
           behavior="padding"
-          keyboardVerticalOffset={height/2}
+          keyboardVerticalOffset={height / 2}
           enabled
         >
           <View style={styles.inner}>
@@ -70,7 +70,7 @@ function SignupScreen(props) {
               onChangeText={text => setEmail(text)}
             />
             <InputBox
-              placeholder="password"
+              placeholder="Password"
               iconName="lock-outline"
               secureText={true}
               value={password}
@@ -88,7 +88,8 @@ function SignupScreen(props) {
 
 const styles = StyleSheet.create({
   wrapper: {
-    flex: 1
+    flex: 1,
+    backgroundColor: Colors.background
   },
   square1: {
     position: "absolute",
@@ -96,7 +97,11 @@ const styles = StyleSheet.create({
     height: width / 1.3,
     top: -width / 2,
     left: -width / 10,
-    transform: [{ rotate: "45deg" }],
+    transform: [
+      {
+        rotate: "45deg"
+      }
+    ],
     backgroundColor: Colors.square1,
     borderRadius: 20,
     opacity: 0.8
@@ -108,7 +113,11 @@ const styles = StyleSheet.create({
     top: -width / 2.3,
     left: width / 2.5,
     backgroundColor: Colors.square2,
-    transform: [{ rotate: "45deg" }],
+    transform: [
+      {
+        rotate: "45deg"
+      }
+    ],
     position: "absolute",
     borderRadius: 20,
     opacity: 0.9
@@ -117,13 +126,13 @@ const styles = StyleSheet.create({
   textContainer: {
     flex: 1,
     marginTop: height / 3.7,
-    marginLeft: -10,
+    marginLeft: -10
   },
   titleText: {
-    fontSize: 35,
+    fontSize: 33.5,
     color: Colors.text,
     marginLeft: 30,
-    fontWeight: "bold"
+    fontFamily: 'comicSans-Bold',
   },
   inputContainer: {
     maxHeight: "100%",
