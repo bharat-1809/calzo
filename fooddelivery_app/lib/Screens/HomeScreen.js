@@ -187,6 +187,7 @@ function HomeScreen(props) {
   return (
     <SafeAreaView style={styles.wrapper}>
       <TopBar
+        navigation={props.navigation}
         onChangeText={text => searchTextHandler(text)}
         value={searchText}
         numberOfItems={numberOfItems}
