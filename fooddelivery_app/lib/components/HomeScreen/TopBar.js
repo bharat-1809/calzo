@@ -2,6 +2,7 @@ import React from "react";
 import { View, TextInput, StyleSheet, Dimensions, Text } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import colors from "../../constants/colors";
+import MenuContainer from "./MenuButton";
 
 const height = Dimensions.get("window").height;
 
@@ -14,10 +15,10 @@ function TopBar(props) {
   return (
     <View style={styles.container}>
       <View style={styles.iconBar}>
-        <MaterialCommunityIcons name="menu" size={35} color="white" />
-        <View>
+        <MenuContainer />
+        <View style={styles.cartButton}>
           {props.numberOfItems ? numberOfItems : <View></View>}
-          <MaterialCommunityIcons name="cart" size={35} color="white" />
+          <MaterialCommunityIcons name="cart" size={30} color="white" />
         </View>
       </View>
       <View style={styles.inputBar}>
@@ -49,11 +50,18 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between"
   },
+  cartButton: {
+    position: "absolute",
+    right: 0,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 5,
+  },
   inputBar: {
     width: "100%",
     backgroundColor: "white",
     flexDirection: "row",
-    marginTop: 20,
+    marginTop: 60,
     padding: 5,
     borderRadius: 10
   },
@@ -61,7 +69,7 @@ const styles = StyleSheet.create({
     width: "100%",
     paddingLeft: 10,
     fontSize: 16,
-    fontFamily: "comicSans-Regular",
+    fontFamily: "comicSans-Regular"
   },
   numberContainer: {
     position: "absolute",
@@ -76,7 +84,7 @@ const styles = StyleSheet.create({
   },
   number: {
     fontSize: 11,
-    fontFamily: "comicSans-Regular",
+    fontFamily: "comicSans-Regular"
   }
 });
 
