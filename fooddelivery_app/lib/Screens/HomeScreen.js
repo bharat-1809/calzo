@@ -224,7 +224,8 @@ const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     justifyContent: "flex-start",
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: "#fff",
   },
   optionBar: {
     width: "90%",
