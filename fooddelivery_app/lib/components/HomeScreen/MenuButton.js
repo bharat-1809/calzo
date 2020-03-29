@@ -1,6 +1,7 @@
 import React from "react";
 import { View, StyleSheet} from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { TouchableNativeFeedback } from "react-native-gesture-handler";
 
 export default function MenuContainer({navigation}) {
 
@@ -9,7 +10,9 @@ export default function MenuContainer({navigation}) {
     }
     return (
         <View style={styles.MenuIcon}>
+            <TouchableNativeFeedback>
         <MaterialCommunityIcons name="menu" size={30} color="white" onPress={openMenu}/>
+        </TouchableNativeFeedback>
         </View>
     );
 }

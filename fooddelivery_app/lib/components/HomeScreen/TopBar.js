@@ -15,7 +15,7 @@ function TopBar(props) {
   return (
     <View style={styles.container}>
       <View style={styles.iconBar}>
-        <MenuContainer />
+        <MenuContainer navigation={props.navigation}/>
         <View style={styles.cartButton}>
           {props.numberOfItems ? numberOfItems : <View></View>}
           <MaterialCommunityIcons name="cart" size={30} color="white" />

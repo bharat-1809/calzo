@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     borderRadius: 500,
     backgroundColor: "#03a9f4",
     justifyContent: "center",
-
+    elevation: 10,
   },
   circle2: {
     height: 0.331 * height,

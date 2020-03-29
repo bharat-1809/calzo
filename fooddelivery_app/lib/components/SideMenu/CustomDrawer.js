@@ -64,9 +64,9 @@ const styles = StyleSheet.create({
   },
   boldText: {
     fontSize: 12,
-    fontFamily: "comicSans-Regular",
+    fontFamily: "comicSans-Bold",
     color: "#5d5c5c",
-    fontWeight: 'bold'
+    // fontWeight: 'bold'
   },
   iconContainer: {
     marginTop: '0.5%',
