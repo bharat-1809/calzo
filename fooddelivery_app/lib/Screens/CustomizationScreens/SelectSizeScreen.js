@@ -1,15 +1,15 @@
 import React from "react";
 import { Text, View, StyleSheet, Dimensions } from "react-native";
 import { CheckBox } from "react-native-elements";
-import { LinearGradient } from "expo-linear-gradient";
-import SwitchScreenButton from "../components/SwitchScreenComp/SwitchButton";
-import Colors from "../constants/colors";
+import SwitchScreenButton from "../../components/CustomizationScreen/SwitchButton";
+import Colors from "../../constants/colors";
+import GreenContainer from "../../components/CustomizationScreen/GreenContainer";
 
 const height = Dimensions.get("window").height;
 const width = Dimensions.get("window").width;
 
-const SelectSizeScreen = () => {
-  const { header, designStyle } = styles;
+function SelectSizeScreen() {
+  const { header } = styles;
 
   return (
     <View>
@@ -20,17 +20,11 @@ const SelectSizeScreen = () => {
         <CheckBox title="Medium" />
         <CheckBox title="Large" />
       </View>
-
-      <LinearGradient
-        style={designStyle}
-        colors={["#4CAF50", "#2E7D32"]}
-        start={[0.2, 0.1]}
-        end={[0.3, 0.9]}
-      ></LinearGradient>
+      <GreenContainer />
       <SwitchScreenButton title="Next" />
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   header: {
@@ -38,18 +32,7 @@ const styles = StyleSheet.create({
     marginLeft: 0.064 * width,
     color: Colors.buttonGrey,
     fontWeight: "bold",
-    fontSize: 35,
-  },
-
-  designStyle: {
-    position: "absolute",
-    marginTop: 0.860 * height,
-    height: 0.18 * height,
-    width: 1 * width,
-    elevation: 5,
-    borderTopRightRadius: 60,
-    borderTopLeftRadius: 60,
+    fontSize: 35
   }
 });
-
 export default SelectSizeScreen;
