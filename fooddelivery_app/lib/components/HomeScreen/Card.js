@@ -9,7 +9,6 @@ import {
 } from "react-native";
 import images from "../../constants/images";
 const width = Dimensions.get("window").width;
-
 function Card(props) {
   return (
     <View style={styles.wrapper}>
@@ -17,7 +16,7 @@ function Card(props) {
       <View style={styles.detailsContainer}>
         <Text style={styles.name}> {props.title} </Text>
         <View style={styles.priceContainer}>
-          <Text> Rs. {props.price} </Text>
+          <Text style={styles.priceText}> {'\u20B9'} {props.price} </Text>
           <TouchableOpacity style={styles.addButton}>
             <Text style={styles.addText}> ADD </Text>
           </TouchableOpacity>
@@ -30,13 +29,13 @@ function Card(props) {
 const styles = StyleSheet.create({
   wrapper: {
     width: width / 2.2,
-    height: width / 2,
+    height: width / 1.99,
     margin: 5,
-    borderRadius: 5,
-    elevation: 10
+    borderRadius: 10,
+    elevation: 4
   },
   image: {
-    height: width / 2.8,
+    height: width / 3.2,
     width: width / 2.2,
     backgroundColor: "white"
   },
@@ -52,22 +51,31 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "center"
+    alignItems: "center",
+    marginBottom: 2,
   },
   addButton: {
     backgroundColor: "#47ab4b",
-    paddingHorizontal: 20,
-    borderRadius: 20,
-    paddingVertical: 5,
+    paddingHorizontal: 15,
+    borderRadius: 30,
+    paddingVertical: 2.5,
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    elevation: 4,
   },
   addText: {
     color: "white"
   },
   name: {
-    fontSize: 14,
+    paddingHorizontal: 3.6,
+    paddingTop: 8,
+    paddingBottom: 0.0,
     textAlign: "center",
+    fontSize: 12.5,
+    fontFamily: "comicSans-Regular"
+  },
+  priceText: {
+    fontSize: 12.5,
     fontFamily: "comicSans-Regular"
   }
 });

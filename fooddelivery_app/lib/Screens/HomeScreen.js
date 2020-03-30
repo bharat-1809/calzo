@@ -224,7 +224,8 @@ const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     justifyContent: "flex-start",
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: "#fff",
   },
   optionBar: {
     width: "90%",
@@ -232,18 +233,18 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    borderWidth: 1,
+    borderWidth: 0.5,
     borderRadius: 30,
     paddingHorizontal: 5,
-    marginVertical: 15,
+    marginVertical: 20,
     borderColor: "#929292",
     backgroundColor: "white",
-    elevation: 8
+    elevation: 4,
   },
   line: {
     width: "70%",
     borderWidth: 0.5,
-    marginTop: 10,
+    marginTop: 0,
     marginBottom: 20
   }
 });

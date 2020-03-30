@@ -15,14 +15,14 @@ function TopBar(props) {
   return (
     <View style={styles.container}>
       <View style={styles.iconBar}>
-        <MenuContainer navigation={props.navigation}/>
+        <MenuContainer navigation={props.navigation} />
         <View style={styles.cartButton}>
-          {props.numberOfItems ? numberOfItems : <View></View>}
           <MaterialCommunityIcons name="cart" size={30} color="white" />
+          {props.numberOfItems ? numberOfItems : <View></View>}
         </View>
       </View>
       <View style={styles.inputBar}>
-        <MaterialCommunityIcons name="magnify" size={35} color="lightgray" />
+        <MaterialCommunityIcons name="magnify" size={30} color="#aeaead" />
         <TextInput
           style={styles.input}
           placeholder="Search your food love"
@@ -38,12 +38,13 @@ const styles = StyleSheet.create({
   container: {
     height: height / 5,
     width: "100%",
-    backgroundColor: colors.square1,
+    backgroundColor: "#f50244",
     paddingHorizontal: 20,
     paddingTop: 35,
     paddingBottom: 20,
     borderBottomRightRadius: 30,
-    borderBottomLeftRadius: 30
+    borderBottomLeftRadius: 30,
+    elevation: 0
   },
   iconBar: {
     width: "100%",
@@ -55,36 +56,41 @@ const styles = StyleSheet.create({
     right: 0,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 5,
+    marginTop: 5
   },
   inputBar: {
     width: "100%",
     backgroundColor: "white",
     flexDirection: "row",
     marginTop: 60,
-    padding: 5,
-    borderRadius: 10
+    padding: 6,
+    paddingLeft: 10,
+    borderRadius: 18
   },
   input: {
     width: "100%",
     paddingLeft: 10,
-    fontSize: 16,
-    fontFamily: "comicSans-Regular"
+    fontSize: 14,
+    fontFamily: "comicSans-Regular",
+    color: "#aeaead",
   },
   numberContainer: {
     position: "absolute",
-    top: -4,
-    left: 28,
-    width: 12,
-    height: 12,
-    backgroundColor: "white",
+    bottom: (0.022 * height),
+    left: 18,
+    width: 16,
+    height: 16,
+    backgroundColor: "#03a9f4",
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 7
+    borderRadius: 100,
+    borderWidth: 1,
+    borderColor: "#fff",
   },
   number: {
-    fontSize: 11,
-    fontFamily: "comicSans-Regular"
+    fontSize: 8,
+    fontFamily: "comicSans-Bold",
+    color: "#fff",
   }
 });
 

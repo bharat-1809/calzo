@@ -8,7 +8,7 @@ import Colors from "../constants/colors";
 const height = Dimensions.get("window").height;
 const width = Dimensions.get("window").width;
 
-const SelectSizeScreen = () => {
+function SelectSizeScreen() {
   const { header, designStyle } = styles;
 
   return (
@@ -30,7 +30,7 @@ const SelectSizeScreen = () => {
       <SwitchScreenButton title="Next" />
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   header: {
@@ -38,18 +38,17 @@ const styles = StyleSheet.create({
     marginLeft: 0.064 * width,
     color: Colors.buttonGrey,
     fontWeight: "bold",
-    fontSize: 35,
+    fontSize: 35
   },
 
   designStyle: {
     position: "absolute",
-    marginTop: 0.860 * height,
+    marginTop: 0.86 * height,
     height: 0.18 * height,
     width: 1 * width,
     elevation: 5,
     borderTopRightRadius: 60,
-    borderTopLeftRadius: 60,
+    borderTopLeftRadius: 60
   }
 });
-
 export default SelectSizeScreen;
