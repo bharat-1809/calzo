@@ -18,6 +18,7 @@ function MainNavigator() {
         <Stack.Screen name="LoginPage" component={LoginScreen} />
         <Stack.Screen name="SignupScreen" component={SignupScreen} />
         <Stack.Screen name="DrawerMenu" component={DrawerMenu} />
+        <Stack.Screen name="SelectSize" component={SelectSizeScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
