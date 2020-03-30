@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, FlatList} from 'react-native';
+import { View, FlatList} from 'react-native';
 import PizzaDetail1 from '../components/CartPageComp/PizzaDetail';
 import GreenButton from '../components/CartPageComp/GreenButton';
 
