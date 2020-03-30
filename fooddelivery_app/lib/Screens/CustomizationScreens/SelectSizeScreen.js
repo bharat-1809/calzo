@@ -31,8 +31,8 @@ const styles = StyleSheet.create({
     marginTop: 0.073 * height,
     marginLeft: 0.064 * width,
     color: Colors.buttonGrey,
-    fontWeight: "bold",
-    fontSize: 35
+    fontSize: 35,
+    fontFamily: "comicSans-Bold"
   }
 });
 export default SelectSizeScreen;
