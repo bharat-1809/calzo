@@ -128,12 +128,24 @@ function HomeScreen(props) {
   function selectedHandler(num) {
     if (num == 0) {
       setVegSelected(!vegSelected);
+      setNonVegSelected(0);
+      setPizzaManiaSelected(0);
+      setSidesSelected(0);
     } else if (num == 1) {
       setNonVegSelected(!nonVegSelected);
+      setVegSelected(0);
+      setPizzaManiaSelected(0);
+      setSidesSelected(0);
     } else if (num == 2) {
       setPizzaManiaSelected(!pizzaManiaSelected);
+      setVegSelected(0);
+      setNonVegSelected(0);
+      setSidesSelected(0);
     } else if (num == 3) {
       setSidesSelected(!sidesSelected);
+      setVegSelected(0);
+      setNonVegSelected(0);
+      setPizzaManiaSelected(0);
     }
   }
   useEffect(() => {
@@ -159,7 +171,7 @@ function HomeScreen(props) {
     return <Card title={title} price={price} url={url} />;
   }
   const load = loading ? (
-    <ActivityIndicator color="blue" />
+    <ActivityIndicator color="blue" style={styles.activityIndicator}/>
   ) : (
     <FlatList
       data={data}
@@ -226,9 +238,14 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center"
   },
+  activityIndicator: {
+    marginTop: 100,
+    height: 100,
+    width: 100,
+  },
   optionBar: {
     width: "90%",
-    height: 40,
+    height: 42.5,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
