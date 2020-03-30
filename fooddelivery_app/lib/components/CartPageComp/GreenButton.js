@@ -50,7 +50,6 @@ const styles = StyleSheet.create({
 
     textStyle1:{
         fontSize: 12,
-        //backgroundColor: 'pink'  
         color: 'white',
         paddingTop:2 ,
         marginHorizontal: 130,

@@ -8,56 +8,56 @@ const CartScreen = () => {
  
     const data = [
         {
-            imageSource: require('../../assets/database/PIZZA/Veg Pizza/Cheese and Tomato.png'),
+            imageSource: require('../../assets/database/PIZZA/Veg_Pizza/Deluxe_Veggie.jpg'),
             pizzaName: 'Peppy Panner',
             pizzaDescription: 'Thin Crust',
             pizzaPrice: 333,
         },
         
         {
-            imageSource: require('../../assets/database/PIZZA/Veg Pizza/Cheese and Tomato.png'),
+            imageSource: require('../../assets/database/PIZZA/Veg_Pizza/Double_Cheese_Margherita.jpg'),
             pizzaName: 'Farmhouse',
             pizzaDescription: 'Thin Crust',
             pizzaPrice: 342,
         },
         
         {
-            imageSource: require('../../assets/database/PIZZA/Veg Pizza/Cheese and Tomato.png'),
+            imageSource: require('../../assets/database/PIZZA/Veg_Pizza/IndianTandooriPaneer.jpg'),
             pizzaName: 'Farmhouse',
             pizzaDescription: 'Thin Crust',
             pizzaPrice: 343,
         },
 
         {
-            imageSource: require('../../assets/database/PIZZA/Veg Pizza/Cheese and Tomato.png'),
+            imageSource: require('../../assets/database/PIZZA/Veg_Pizza/kadhai_paneer.jpg'),
             pizzaName: 'Farmhouse',
             pizzaDescription: 'Thin Crust',
             pizzaPrice: 143,
         },
 
         {
-            imageSource: require('../../assets/database/PIZZA/Veg Pizza/Cheese and Tomato.png'),
+            imageSource: require('../../assets/database/PIZZA/Veg_Pizza/Mexican_Green_Wave.jpg'),
             pizzaName: 'Farmhouse',
             pizzaDescription: 'Thin Crust',
             pizzaPrice: 333,
         },
 
         {
-            imageSource: require('../../assets/database/PIZZA/Veg Pizza/Cheese and Tomato.png'),
+            imageSource: require('../../assets/database/PIZZA/Veg_Pizza/Veg_Extravaganz.jpg'),
             pizzaName: 'Farmhouse',
             pizzaDescription: 'Thin Crust',
             pizzaPrice: 333,
         },
 
         {
-            imageSource: require('../../assets/database/PIZZA/Veg Pizza/Cheese and Tomato.png'),
+            imageSource: require('../../assets/database/PIZZA/Veg_Pizza/Corn_Cheese.jpg'),
             pizzaName: 'Farmhouse',
             pizzaDescription: 'Thin Crust',
             pizzaPrice: 333,
         },
 
         {
-            imageSource: require('../../assets/database/PIZZA/Veg Pizza/Cheese and Tomato.png'),
+            imageSource: require('../../assets/database/PIZZA/Veg_Pizza/Peppy_Paneer.jpg'),
             pizzaName: 'Farmhouse',
             pizzaDescription: ' Crust',
             pizzaPrice: 333,
