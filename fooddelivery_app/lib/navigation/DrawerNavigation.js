@@ -18,6 +18,7 @@ function DrawerMenu() {
       backBehavior="initialRoute"
       drawerStyle={styles.drawerStyle}
       drawerContent={props => <CustomDrawerContent {...props} />}
+      keyboardDismissMode={"on-drag"}
     >
       <Drawer.Screen
         name="Home"
