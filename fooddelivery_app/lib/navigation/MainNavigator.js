@@ -3,7 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import SignupScreen from "../Screens/SignupScreen";
 import LoginScreen from "../Screens/LoginScreen";
-import SelectSizeScreen from "../Screens/SelectSizeScreen";
+import SelectSizeScreen from "../Screens/CustomizationScreens/SelectSizeScreen";
 import DrawerMenu from "./DrawerNavigation";
 
 function MainNavigator() {
