@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, FlatList} from 'react-native';
-import PizzaDetail1 from '../components/CartPageComp/PizzaDetail';
-import GreenButton from '../components/CartPageComp/GreenButton';
+import PizzaDetail from '../components/CartPageComp/PizzaDetail';
+import GreenContainer from '../components/CartPageComp/GreenContainer';
 
 
 const CartScreen = () => {
@@ -70,10 +70,10 @@ const CartScreen = () => {
                 data={data}
                 keyExtractor={() => Math.random().toString()}
                 renderItem={({ item }) => (
-                    <PizzaDetail1 pizzaDescription={item.pizzaDescription} pizzaName={item.pizzaName}  pizzaPrice={item.pizzaPrice} imageSource = {item.imageSource}/>
+                    <PizzaDetail pizzaDescription={item.pizzaDescription} pizzaName={item.pizzaName}  pizzaPrice={item.pizzaPrice} imageSource = {item.imageSource}/>
                 )}
             />
-            <GreenButton />
+            <GreenContainer />
             </View>             
     )
 }
