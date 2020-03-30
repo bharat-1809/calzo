@@ -5,7 +5,6 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import MyOrdersOption from "../Screens/MenuDrawer/MyOrders";
 import AboutOption from "../Screens/MenuDrawer/About";
 import ProfileOption from "../Screens/MenuDrawer/Profile";
-import SettingOption from "../Screens/MenuDrawer/Settings";
 import HomeScreen from "../Screens/HomeScreen";
 import CustomDrawerContent from "../components/SideMenu/CustomDrawer";
 const width = Dimensions.get("window").width;
@@ -48,16 +47,6 @@ function DrawerMenu() {
             <MaterialCommunityIcons name="account" size={25} color="#5d5c5c" />
           ),
           drawerLabel: () => <Text style={styles.labelText}>Profile</Text>
-        }}
-      />
-      <Drawer.Screen
-        name="Settings"
-        component={SettingOption}
-        options={{
-          drawerIcon: () => (
-            <MaterialCommunityIcons name="settings" size={25} color="#5d5c5c" />
-          ),
-          drawerLabel: () => <Text style={styles.labelText}>Settings</Text>
         }}
       />
       <Drawer.Screen
