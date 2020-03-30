@@ -6,6 +6,10 @@ import LoginScreen from "../Screens/LoginScreen";
 import SelectSizeScreen from "../Screens/CustomizationScreens/SelectSizeScreen";
 import DrawerMenu from "./DrawerNavigation";
 
+=======
+import HomeScreen from "../Screens/HomeScreen";
+import CartScreen from "../Screens/CartScreen";
+
 function MainNavigator() {
   const Stack = createStackNavigator();
   return (
@@ -19,6 +23,10 @@ function MainNavigator() {
         <Stack.Screen name="SignupScreen" component={SignupScreen} />
         <Stack.Screen name="DrawerMenu" component={DrawerMenu} />
         <Stack.Screen name="SelectSize" component={SelectSizeScreen} />
+=======
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        <Stack.Screen name="Cart" component={CartScreen} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
