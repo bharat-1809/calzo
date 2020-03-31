@@ -16,6 +16,9 @@ import Firebase from "../constants/firebase";
 import TopBar from "../components/HomeScreen/TopBar";
 import Options from "../components/HomeScreen/Options";
 import Card from "../components/HomeScreen/Card";
+import CartScreen from "./CartScreen";
+import DrawerMenu from "../navigation/DrawerNavigation";
+import { TouchableOpacity } from "react-native-gesture-handler";
 //This is to ignore warnings about delay of receiving data from firebase.
 YellowBox.ignoreWarnings(["Setting a timer"]);
 const _console = _.clone(console);
@@ -199,7 +202,6 @@ function HomeScreen(props) {
   return (
     <SafeAreaView style={styles.wrapper}>
       <TopBar
-        navigation={props.navigation}
         onChangeText={text => searchTextHandler(text)}
         value={searchText}
         numberOfItems={numberOfItems}

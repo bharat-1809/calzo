@@ -8,8 +8,10 @@ import {
   TouchableOpacity
 } from "react-native";
 import images from "../../constants/images";
+import { useNavigation, CommonActions } from "@react-navigation/native";
 const width = Dimensions.get("window").width;
 function Card(props) {
+  const navigation = useNavigation();
   return (
     <View style={styles.wrapper}>
       <Image source={images.image[props.url]} style={styles.image} />
@@ -17,7 +19,12 @@ function Card(props) {
         <Text style={styles.name}> {props.title} </Text>
         <View style={styles.priceContainer}>
           <Text style={styles.priceText}> {'\u20B9'} {props.price} </Text>
-          <TouchableOpacity style={styles.addButton}>
+          <TouchableOpacity style={styles.addButton} onPress={() => navigation.dispatch(
+            CommonActions.navigate({
+              name: 'SelectSize',
+              params: {},
+            })
+          )}>
             <Text style={styles.addText}> ADD </Text>
           </TouchableOpacity>
         </View>

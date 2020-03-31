@@ -1,12 +1,14 @@
 import React from "react";
 import { View, TextInput, StyleSheet, Dimensions, Text } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import colors from "../../constants/colors";
 import MenuContainer from "./MenuButton";
-
+import { TouchableOpacity } from "react-native-gesture-handler";
+import CartScreen from "../../Screens/CartScreen";
+import { useNavigation, CommonActions } from "@react-navigation/native";
 const height = Dimensions.get("window").height;
 
 function TopBar(props) {
+  const navigation = useNavigation();
   const numberOfItems = (
     <View style={styles.numberContainer}>
       <Text style={styles.number}>{props.numberOfItems}</Text>
@@ -15,9 +17,16 @@ function TopBar(props) {
   return (
     <View style={styles.container}>
       <View style={styles.iconBar}>
-        <MenuContainer navigation={props.navigation} />
+        <MenuContainer />
         <View style={styles.cartButton}>
-          <MaterialCommunityIcons name="cart" size={30} color="white" />
+          <TouchableOpacity onPress={() => navigation.dispatch(
+            CommonActions.navigate({
+              name: "Cart",
+              params: {},
+            })
+          )}>
+            <MaterialCommunityIcons name="cart" size={30} color="white" />
+          </TouchableOpacity>
           {props.numberOfItems ? numberOfItems : <View></View>}
         </View>
       </View>
@@ -72,11 +81,11 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     fontSize: 14,
     fontFamily: "comicSans-Regular",
-    color: "#aeaead",
+    color: "#aeaead"
   },
   numberContainer: {
     position: "absolute",
-    bottom: (0.022 * height),
+    bottom: 0.022 * height,
     left: 18,
     width: 16,
     height: 16,
@@ -85,12 +94,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 100,
     borderWidth: 1,
-    borderColor: "#fff",
+    borderColor: "#fff"
   },
   number: {
     fontSize: 8,
     fontFamily: "comicSans-Bold",
-    color: "#fff",
+    color: "#fff"
   }
 });
 
