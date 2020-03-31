@@ -5,7 +5,6 @@ import SignupScreen from "../Screens/SignupScreen";
 import LoginScreen from "../Screens/LoginScreen";
 import SelectSizeScreen from "../Screens/CustomizationScreens/SelectSizeScreen";
 import DrawerMenu from "./DrawerNavigation";
-import AddOn from "../Screens/CustomizationScreens/AddOn";
 import ForgotPasswordScreen from "../Screens/ForgotPasswordScreen";
 import CartScreen from "../Screens/CartScreen";
 
@@ -23,7 +22,6 @@ function MainNavigator() {
         <Stack.Screen name="DrawerMenu" component={DrawerMenu} />
         <Stack.Screen name="Cart" component={CartScreen} />
         <Stack.Screen name="SelectSize" component={SelectSizeScreen} />
-        <Stack.Screen name="SelectTopping" component={AddOn} />
         <Stack.Screen
           name="ForgotPasswordScreen"
           component={ForgotPasswordScreen}

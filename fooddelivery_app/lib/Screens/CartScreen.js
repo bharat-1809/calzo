@@ -1,5 +1,6 @@
 import React from "react";
-import { View, FlatList } from "react-native";
+import { View, FlatList, StyleSheet, Text } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import PizzaDetail from "../components/CartPageComp/PizzaDetail";
 import GreenContainer from "../components/CartPageComp/GreenContainer";
 
@@ -63,7 +64,15 @@ function CartScreen() {
   ];
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: "#fff" }}>
+      <View style={styles.header}>
+        <Text style={styles.headerText}>
+          <MaterialCommunityIcons name="cart" size={35} style={styles.icon} />
+          <Text> </Text>Cart
+        </Text>
+        <View style={styles.line}></View>
+      </View>
+
       <FlatList
         data={data}
         keyExtractor={() => Math.random().toString()}
@@ -80,5 +89,37 @@ function CartScreen() {
     </View>
   );
 }
-
 export default CartScreen;
+
+const styles = StyleSheet.create({
+  header: {
+    marginTop: "13%"
+  },
+  iconContainer: {},
+  icon: {
+    color: "#5d5d5d"
+  },
+  iconCon: {
+    marginBottom: "1%"
+  },
+  line: {
+
+    width: '80%',
+    height: 0.1,
+    color: "#5d5d5d",
+    borderStyle: "dotted",
+    borderColor: "#5d5d5d",
+    borderWidth: 0.5,
+    justifyContent: "center",
+    alignSelf: "center",
+    marginBottom: '2%',
+  },
+  headerText: {
+    marginLeft: "8%",
+    marginBottom: "3%",
+    justifyContent: "center",
+    color: "#5d5d5d",
+    fontSize: 32,
+    fontFamily: "comicSans-Bold"
+  }
+});
