@@ -33,30 +33,37 @@ const ForgotPasswordScreen = props => {
           color="white"
           style={styles.icon}
         />
-        <KeyboardAvoidingView style={styles.container}>
-          <Text style={styles.contentTitle}>
-            Enter the email address associated with your account
-          </Text>
-          <Text style={styles.contentSubContent}>
-            We will email you a link to reset your password
-          </Text>
-          <TextInput
-            style={styles.inputContainer}
-            placeholder="Enter Your Email Address"
-            onChangeText={text => setEmail(text)}
-            value={email}
-          />
-          <TouchableOpacity
-            style={styles.button}
-            onPress={resetPasswordHandler}
-          >
-            <LinearGradient
+        <KeyboardAvoidingView
+          enabled
+          style={{ flex: 1, alignItems: "center" }}
+          keyboardVerticalOffset={20}
+          behavior="padding"
+        >
+          <View style={styles.container}>
+            <Text style={styles.contentTitle}>
+              Enter the email address associated with your account
+            </Text>
+            <Text style={styles.contentSubContent}>
+              We will email you a link to reset your password
+            </Text>
+            <TextInput
+              style={styles.inputContainer}
+              placeholder="Enter Your Email Address"
+              onChangeText={text => setEmail(text)}
+              value={email}
+            />
+            <TouchableOpacity
               style={styles.button}
-              colors={[Colors.square2, Colors.square1]}
+              onPress={resetPasswordHandler}
             >
-              <Text>Send</Text>
-            </LinearGradient>
-          </TouchableOpacity>
+              <LinearGradient
+                style={styles.button}
+                colors={[Colors.square2, Colors.square1]}
+              >
+                <Text style={styles.sendText}>Send</Text>
+              </LinearGradient>
+            </TouchableOpacity>
+          </View>
         </KeyboardAvoidingView>
       </LinearGradient>
     </SafeAreaView>
@@ -72,7 +79,8 @@ const styles = StyleSheet.create({
     marginTop: "30%",
     fontSize: 30,
     textAlign: "center",
-    color: Colors.background
+    color: Colors.background,
+    fontFamily: "comicSans-Regular"
   },
   icon: {
     marginVertical: 60,
@@ -89,11 +97,13 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     marginVertical: 20,
     textAlign: "center",
-    fontSize: 20,
-    fontWeight: "800"
+    fontSize: 18,
+    fontWeight: "800",
+    fontFamily: "comicSans-Regular"
   },
   contentSubContent: {
-    fontSize: 17,
+    fontSize: 15,
+    fontFamily: "comicSans-Regular",
     color: Colors.blurText,
     textAlign: "center",
     marginBottom: 20
@@ -105,7 +115,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
     borderBottomWidth: 1,
     borderBottomColor: "gray",
-    marginBottom: 10
+    marginBottom: 10,
+    fontFamily: "comicSans-Regular"
   },
   button: {
     alignSelf: "center",
@@ -113,6 +124,10 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 40,
     borderRadius: 40
+  },
+  sendText: {
+    color: "#fff",
+    fontFamily: "comicSans-SemiBold"
   }
 });
 
