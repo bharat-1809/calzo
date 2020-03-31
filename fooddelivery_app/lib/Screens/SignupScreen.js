@@ -5,11 +5,13 @@ import {
   KeyboardAvoidingView,
   StyleSheet,
   SafeAreaView,
-  Dimensions
+  Dimensions,
+  Alert
 } from "react-native";
 import Colors from "../constants/colors";
 import InputBox from "../components/SignUpScreen/InputBox";
 import Button from "../components/SignUpScreen/Button";
+import Firebase from "../constants/firebase";
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
@@ -20,6 +22,27 @@ function SignupScreen(props) {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const SignUpHandler = () => {
+    console.log(name, enrollmentNumber, phoneNumber, email, password);
+    Firebase.auth()
+      .createUserWithEmailAndPassword(email, password)
+      .catch(error => {
+        console.log(error.message);
+      });
+    let data = {
+      name: name,
+      enrollmentNumber: enrollmentNumber,
+      phoneNumber: phoneNumber,
+      email: email
+    };
+    let setDoc = Firebase.firestore()
+      .collection("users")
+      .doc(email)
+      .set(data);
+    props.navigation.navigate("LoginPage");
+  };
+
   return (
     <SafeAreaView style={styles.wrapper}>
       <View style={styles.shapeWrapper}>
@@ -80,7 +103,7 @@ function SignupScreen(props) {
         </KeyboardAvoidingView>
       </View>
       <View style={styles.buttonContainer}>
-        <Button text="SIGN UP" />
+        <Button text="SIGN UP" onPress={SignUpHandler} />
       </View>
     </SafeAreaView>
   );
@@ -132,7 +155,7 @@ const styles = StyleSheet.create({
     fontSize: 33.5,
     color: Colors.text,
     marginLeft: 30,
-    fontFamily: 'comicSans-Bold',
+    fontFamily: "comicSans-Bold"
   },
   inputContainer: {
     maxHeight: "100%",

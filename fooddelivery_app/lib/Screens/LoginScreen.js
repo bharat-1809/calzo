@@ -6,7 +6,8 @@ import {
   StyleSheet,
   SafeAreaView,
   Dimensions,
-  TouchableOpacity
+  TouchableOpacity,
+  Alert
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import Colors from "../constants/colors";
@@ -15,13 +16,40 @@ import LoginInput from "../components/LoginScreenComp/LoginInputBox";
 import SignupScreen from "../Screens/SignupScreen";
 import DrawerMenu from "../navigation/DrawerNavigation";
 
+import Firebase from "../constants/firebase";
+import ForgotPasswordScreen from "./ForgotPasswordScreen";
+
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 
 function LoginScreen(props) {
   const [email, setEmail] = useState("");
-  const [password, setPass] = useState("");
+  const [password, setPassword] = useState("");
   const [termsCond, setTermsCond] = useState("");
+
+  const loginHandler = () => {
+    Firebase.auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(() => {
+        props.navigation.navigate(DrawerMenu);
+      })
+      .catch(error => {
+        Alert.alert(
+          "Error",
+          error.message,
+          [
+            {
+              text: "Try again"
+            }
+          ],
+          {
+            cancellable: false
+          }
+        );
+        setPassword("");
+      });
+  };
+
   return (
     <SafeAreaView style={styles.wrapper}>
       <View style={styles.container}>
@@ -53,15 +81,12 @@ function LoginScreen(props) {
                 keyboardtype="password"
                 secureTextEntry={true}
                 value={password}
-                onChangeText={val => setPass(val)}
+                onChangeText={val => setPassword(val)}
               />
             </View>
           </KeyboardAvoidingView>
           <View style={styles.buttonContainer}>
-            <LoginButton
-              text="LOGIN"
-              onPress={() => props.navigation.navigate(DrawerMenu)}
-            />
+            <LoginButton text="LOGIN" onPress={loginHandler} />
           </View>
           <View style={styles.signupContainer}>
             <Text style={styles.signupText}>Don't have an account?</Text>
@@ -72,8 +97,10 @@ function LoginScreen(props) {
             </TouchableOpacity>
           </View>
           <View style={styles.forgetContainer}>
-            <TouchableOpacity>
-              <Text style={styles.forgetText}>Forget Password?</Text>
+            <TouchableOpacity
+              onPress={() => props.navigation.navigate(ForgotPasswordScreen)}
+            >
+              <Text style={styles.forgetText}>Forgot Password?</Text>
             </TouchableOpacity>
           </View>
         </LinearGradient>
@@ -116,20 +143,20 @@ const styles = StyleSheet.create({
   signupText: {
     fontSize: 10.5,
     color: Colors.background,
-    fontFamily: 'comicSans-Regular',
+    fontFamily: "comicSans-Regular"
   },
   signupBold: {
     fontSize: 10.5,
     color: Colors.background,
-    fontFamily: 'comicSans-Bold',
+    fontFamily: "comicSans-Bold"
   },
   forgetContainer: {
     top: -(0.035 * height)
   },
   forgetText: {
     fontSize: 10.5,
-    fontFamily: 'comicSans-Bold',
-    color: Colors.background,
+    fontFamily: "comicSans-Bold",
+    color: Colors.background
   }
 });
 export default LoginScreen;

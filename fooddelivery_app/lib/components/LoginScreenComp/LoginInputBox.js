@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     flexDirection: "row"
   },
   icon: {
-    marginBottom: (0.023 * height),
+    marginBottom: 0.023 * height,
     backgroundColor: "#ffffff",
     left: 0.1268 * width,
     alignItems: "center",
@@ -58,13 +58,13 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   inputText: {
-    marginBottom: (0.023 * height),
+    marginBottom: 0.023 * height,
     backgroundColor: "rgba(255,255,255,0.16)",
     borderRadius: 70,
     width: 0.746 * width,
     height: 0.066 * height,
-    fontSize: 18,
-    fontFamily: 'comicSans-Regular',
+    fontSize: 16,
+    fontFamily: "comicSans-Regular",
     textAlign: "center",
     color: Colors.background
   }

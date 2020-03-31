@@ -6,7 +6,7 @@ import { LinearGradient } from "expo-linear-gradient";
 
 function Button(props) {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={props.onPress}>
       <LinearGradient
         colors={[Colors.square1, Colors.square2]}
         style={styles.wrapper}

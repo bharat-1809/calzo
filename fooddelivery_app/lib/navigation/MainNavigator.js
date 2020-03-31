@@ -6,6 +6,7 @@ import LoginScreen from "../Screens/LoginScreen";
 import SelectSizeScreen from "../Screens/CustomizationScreens/SelectSizeScreen";
 import DrawerMenu from "./DrawerNavigation";
 import AddOn from "../Screens/CustomizationScreens/AddOn";
+import ForgotPasswordScreen from "../Screens/ForgotPasswordScreen";
 
 function MainNavigator() {
   const Stack = createStackNavigator();
@@ -21,6 +22,10 @@ function MainNavigator() {
         <Stack.Screen name="DrawerMenu" component={DrawerMenu} />
         <Stack.Screen name="SelectSize" component={SelectSizeScreen} />
         <Stack.Screen name="SelectTopping" component={AddOn} />
+        <Stack.Screen
+          name="ForgotPasswordScreen"
+          component={ForgotPasswordScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
