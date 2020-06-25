@@ -98,6 +98,3 @@ web-report/
 
 # macOS
 .DS_Store
-
-# Owners
-CODEOWNERS
