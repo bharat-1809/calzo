@@ -64,4 +64,4 @@ git push -u origin <your_branch_name>
 **Remember to add "Fixes #Issue_Number" in the Pull Request so as to link the PR with the issue**
 
 
-**Congratulations!** you've made your contribution to [Food Delivery App](https://github.com/bharat-1809/fooddelivery_app) project !!
+**Congratulations!** you've made your contribution to [Food Delivery App](https://github.com/bharat-1809/fooddelivery_app) project.
