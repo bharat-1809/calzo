@@ -6,7 +6,7 @@
 ![Stars](https://img.shields.io/github/stars/bharat-1809/fooddelivery_app)
 [![License](https://img.shields.io/github/license/bharat-1809/fooddelivery_app)](https://github.com/bharat-1809/fooddelivery_app/blob/master/LICENSE)
 
-### UI DESIGN
+### UI DESIGN OF APP 
 
 <p>
     <img src="https://github.com/bharat-1809/fooddelivery_app/blob/master/UI_Design/Splash%20Screen.png" alt="feed example" width= "250">
