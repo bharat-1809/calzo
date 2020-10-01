@@ -34,7 +34,7 @@ git clone https://github.com/<your-github-username>/fooddelivery_app
 **3.** Navigate to the project directory.
 
 ```terminal
-cd fooddelivery_app
+cd calzo
 ```
 
 **4.** Create a new branch.
