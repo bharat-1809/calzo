@@ -52,6 +52,6 @@ export default {
         require("../../assets/database/PIZZA/Pizzamania/Veg/golden_corn_veg.jpg"),
         require("../../assets/database/PIZZA/Pizzamania/Veg/CapsicumVeg.jpg"),
         require("../../assets/database/PIZZA/Pizzamania/NonVeg/PepperBarbecueChicken.jpg"),
-        require("../../assets/database/PIZZA/Pizzamania/Veg/cheesy.jpg")
+        
     ]
 }
