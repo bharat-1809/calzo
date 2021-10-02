@@ -1,4 +1,4 @@
-# Food Delivery App
+# CalZo - Food Delivery App
 
 ![Issues](https://img.shields.io/github/issues/bharat-1809/fooddelivery_app)
 ![Pull Requests](https://img.shields.io/github/issues-pr/bharat-1809/fooddelivery_app)
@@ -6,7 +6,7 @@
 ![Stars](https://img.shields.io/github/stars/bharat-1809/fooddelivery_app)
 [![License](https://img.shields.io/github/license/bharat-1809/fooddelivery_app)](https://github.com/bharat-1809/fooddelivery_app/blob/master/LICENSE)
 
-### UI DESIGN OF APP 
+### Mockups 
 
 <p>
     <img src="https://github.com/bharat-1809/fooddelivery_app/blob/master/UI_Design/Splash%20Screen.png" alt="feed example" width= "250">
@@ -64,4 +64,4 @@ git push -u origin <your_branch_name>
 **Remember to add "Fixes #Issue_Number" in the Pull Request so as to link the PR with the issue**
 
 
-**Congratulations!** you've made your contribution to [Food Delivery App](https://github.com/bharat-1809/fooddelivery_app) project.
+**Congratulations!** you've made your contribution to [CalZo](https://github.com/bharat-1809/calzo).
