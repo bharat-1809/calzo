@@ -23,7 +23,7 @@
 
 ## How to Contribute?
 
-**1.** Fork [this](https://github.com/bharat-1809/fooddelivery_app) repository.
+**1.** fork [this](https://github.com/bharat-1809/fooddelivery_app) repository.
 
 **2.** Clone the forked repository.
 
